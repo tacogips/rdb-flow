@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  rdb-flow-example-db:
+    image: mysql:5.7
+    hostname: rdbflowdb
+    ports:
+      - 5306:3306
+
+    volumes:
+      - ./conf/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./scheme:/docker-entrypoint-initdb.d
+
+    environment:
+      MYSQL_DATABASE: 'rdbflow'
+      MYSQL_USER: 'root'
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'True'
+

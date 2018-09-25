@@ -2,7 +2,7 @@ package conf
 
 import "github.com/tacogips/rdb-flow/rdb"
 
-type RDBFlwoConfig struct {
+type RDBFlowConfig struct {
 	LatestDDLPath   DirAndFile           `toml:"latest_ddl"`
 	GeneratedEntity GeneratedEntity      `toml:"generated_entity"`
 	SchemaMetaDir   string               `toml:"schema_meta_dir"`

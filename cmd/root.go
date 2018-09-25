@@ -7,16 +7,21 @@ import (
 
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+	"github.com/tacogips/rdb-flow/conf"
 )
 
-var rootCmd = &cobra.Command{}
+var rootCmd = &cobra.Command{Use: "rdb-flow"}
 var (
 	configDir  string
 	configName string
+	config     conf.RDBFlowConfig
 )
 
 func init() {
 	cobra.OnInitialize(initConfig)
+
+	rootCmd.AddCommand(refreshCmd, upgradeCmd)
+
 }
 
 func Execute() {
@@ -42,6 +47,10 @@ func initConfig() {
 	if err := viper.ReadInConfig(); err != nil {
 		fmt.Printf("not read config file %+v\n", filepath.Join(configDir, configName))
 		os.Exit(1)
+	} else {
+
+		viper.Unmarshal(&config)
+
 	}
 
 }

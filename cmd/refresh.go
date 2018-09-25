@@ -1,5 +1,15 @@
 package cmd
 
-import "github.com/spf13/cobra"
+import (
+	"fmt"
 
-var refreshCmd = &cobra.Command{Use: "refresh"}
+	"github.com/spf13/cobra"
+)
+
+var refreshCmd = &cobra.Command{
+	Use: "refresh",
+
+	Run: func(c *cobra.Command, args []string) {
+		fmt.Printf("refresh %+v\n", c) //TODO()
+	},
+}

@@ -52,6 +52,6 @@ func newConn(conf ConnectionConfig) (*xorm.Engine, error) {
 	case "mysql":
 		return xorm.NewEngine("mysql", mysqlConnStringFromConfig(conf))
 	default:
-		panic("not implemented driver %s", conf.Driver)
+		panic(fmt.Errorf("not implemented driver %s", conf.Driver))
 	}
 }

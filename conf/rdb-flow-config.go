@@ -11,8 +11,8 @@ type RDBFlowConfig struct {
 }
 
 type DirAndFile struct {
-	Dir  `toml:"dir"`
-	File `toml:"file"`
+	Dir  string `toml:"dir"`
+	File string `toml:"file"`
 }
 
 type GeneratedEntity struct {
@@ -20,7 +20,7 @@ type GeneratedEntity struct {
 }
 
 type GeneratedEntityExportPath struct {
-	PackageName `toml:"package_name"`
-	Dir         `toml:"dir"`
-	File        `toml:"file"`
+	PackageName string `toml:"package_name"`
+	Dir         string `toml:"dir"`
+	File        string `toml:"file"`
 }
